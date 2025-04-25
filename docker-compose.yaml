@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  postgresql:
+    image: docker.io/postgres:latest
+    environment:
+      POSTGRES_USER: kyll
+      POSTGRES_PASSWORD: kyll
+      POSTGRES_DB: sclass2
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgresql:/var/lib/postgresql/data
+
+volumes:
+  postgresql:
+    driver:  local

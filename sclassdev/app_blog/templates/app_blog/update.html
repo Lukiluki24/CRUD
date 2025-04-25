@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post</title>
+</head>
+<body>
+    <h1>Edit Post</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="title">Judul:</label>
+        <input type="text" name="title" id="title" value="{{ post.title }}" required>
+        <br>
+        <label for="content">Konten:</label>
+        <textarea name="content" id="content" required>{{ post.content }}</textarea>
+        <br>
+        <button type="submit">Simpan Perubahan</button>
+    </form>
+    <br>
+    <a href="/blog/list/">Kembali ke Daftar Post</a>
+</body>
+</html>

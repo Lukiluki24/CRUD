@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Blog</title>
+</head>
+<body>
+    <h1>Daftar Blog</h1>
+    <a href="/blog/create/">Buat Post Baru</a>
+    <hr>
+
+    {% if posts %}
+        <ul>
+            {% for post in posts %}
+                <li>
+                    <a href="/blog/read/{{ post.id }}/">{{ post.title }}</a> - {{ post.content }}
+                    <a href="{% url 'blog_update' post.id %}">✏ Edit</a>
+                    |<a href="{% url 'blog_delete' post.id %}" onclick="return confirm('Yakin mau hapus?')">🗑 Hapus</a>
+                    
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No posts found.</p>
+    {% endif %}
+
+</body>
+</html>
