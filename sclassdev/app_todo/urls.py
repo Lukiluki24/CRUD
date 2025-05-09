@@ -1,6 +1,7 @@
 
 from django.urls import path
-from app_blog.views import create, list, read, delete, update
+from app_todo.views import create, list, read, delete, update
+
 urlpatterns = [
     path('create/', create.view, name='create'),
     path('list/', list.view, name='list'),
